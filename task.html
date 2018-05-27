@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Модальное окно</title>
+		
+		<style>
+			#b {
+				position:fixed;
+				top:0;
+				left:0;
+				right:0;
+				bottom:0;
+				display:none;
+				background: grey;
+				z-index:1;
+			}
+	
+			#a {
+				position: fixed;
+				background: white;
+				z-index: 3;
+				display: none;
+			}
+ 
+			#windows {
+				positin: absolute;
+				padding: 5px;
+				width: 500px;
+				height: 200px; 
+			}
+ 
+			#openButton {
+				position: relative;
+				top: 20px;
+				left: 550px;
+			}
+			
+			#closeButton {
+				position: relative;
+				top: 150px;
+				left: 175px;
+			}
+ 
+			div.pages {
+				background: #9f9f9f;
+				color: white;
+				padding: 4px;
+				text-decoration: none;
+				text-align: center;
+				width: 150px;
+				height: 30px;
+			}
+ 
+			div:hover.pages {
+				background: #860000;
+				color: white;
+				padding: 4px;
+			}
+		</style>
+	</head>
+	<body>
+		<div onclick="showA();" class="pages" id="openButton"><p>Открыть</p></div>
+		<div id="a">
+			<div id="windows">
+				<div onclick="hideA();" class="pages" id="closeButton" style="float: center;"><p>Закрыть</p></div>
+			</div>
+		</div>
+		<div id="b"></div>
+
+		<script>
+			window.onload = function() {
+				a = document.getElementById("a");
+				b = document.getElementById("b");
+			}
+			
+			function showA() {
+				b.style.filter = "alpha(opacity=40)";
+				b.style.opacity = 0.4;
+				b.style.display = "block";
+				
+				a.style.display = "block";
+				a.style.top = "20px";
+				a.style.left = "380px";
+			}
+ 
+			function hideA() {
+				b.style.display = "none";
+				a.style.display = "none";
+			}     
+		</script>
+	</body>
+</html>
